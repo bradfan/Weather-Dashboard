@@ -1,0 +1,13 @@
+body{
+    background-color: lightblue;
+    
+    
+}
+header{
+    text-align: center;
+    border: solid black;
+    border-radius:10px;
+}
+#weather-form{
+    margin: 2%;
+}
