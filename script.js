@@ -1,10 +1,10 @@
 //  key into the server
  var  api_key = "9c0a561e074040a45ea42e9938799e26";
- var date = moment().format("MMMM Do YYYY")
+ var currentDay = moment().format("MMMM Do YYYY")
 //  first element return for ("#id's")
  var btns = document.querySelector("#city-btns");
  var form = document.querySelector("#weather-form");
- var city = document.querySelector("#city");
+ var city;
  console.log("city1:",city);
 
  // user click listen,element <form> need <input> on HTML
@@ -45,7 +45,7 @@ function getWeather(city){
 fetch(currentWeatherUrl)
   .then((data) => data.json())
   .then(function (weather) {
-    console.log(weather);
+    console.log("weather: ", weather);
     // if that city was not found, alert user
     if(weather.cod === 404){
       // display message to user
@@ -55,23 +55,32 @@ fetch(currentWeatherUrl)
     
     var lat = weather.coord.lat;
     var lon = weather.coord.lon;
+    
+    var containerEl = document.getElementById("containerEl");
+// smaller container (smallContainer) within larger container (container.)For each loop will duplacate boxes within larger container.
+    // create the small conatiner
+    var smallContainer = document.createElement("div");
+    //added html to the small container
     var cityName = document.createElement("p");
-    var currentDay = document.getElementById("currentDay"); currentDay.textContent=date;
-    currentDay.textContent=date
-    // icon representing weather conditions
+    cityName.innerHTML = "Location: "+city;
+    smallContainer.append(cityName);
+    var currentDay = moment().format("MMMM Do YYYY");
+    var currentDayArea = document.createElement("p");
+    currentDayArea.innerHTML = "Today's Date: "+currentDay;
+    smallContainer.append(currentDayArea);
+
      var tempData = document.createElement("p");
      tempData.innerHTML = "Temperature: "+ weather.main.temp + " F";
-     document.getElementById("container").append(tempData);
+     smallContainer.append(tempData);
      var humidity = document.createElement("p");
      humidity.innerHTML = "Humidity: "+ weather.main.humidity +" %";
-     document.getElementById("container").append(humidity);
+     smallContainer.append(humidity);
      var wind = document.createElement("p");
      wind.innerHTML = "Wind Speed: "+ weather.wind.speed +" mph";
-     document.getElementById("container").append(wind);
-    //  var uvIndex = document.createElement("p");
-    //  uvIndex.innerHTML = "UV Index: "+ oneCallData.value;
-    //  document.getElementbyId("container").append(uvIndex);
-
+     smallContainer.append(wind);
+    //appned small conatiner to big container
+    containerEl.append(smallContainer)
+    
     
     if(!cities.includes(weather.name)){
       cities.push(weather.name);
@@ -84,18 +93,26 @@ fetch(currentWeatherUrl)
     fetch(onecallURL)
       .then((data) => data.json())
       .then(function (oneCallData) {
-        console.log(oneCallData);
-      //   var uvIndex = document.createElement("p");
-      // uvIndex.innerHTML = "UV Index: "+ oneCallData.value;
-      // document.getElementbyId("container").append(uvIndex);
-          
+        console.log("oCD:", oneCallData);
+        console.log("oCDvalue:", oneCallData.value);
+         var uvIndex = document.createElement("p");
+        uvIndex.innerHTML = "UV Index: "+ oneCallData.value;
+        containerEl.append(uvIndex);
+
+        $("littleBox").each(function addUvColor(){
+        if (paresInt(oneCallData.value) < 3) {
+          $(this). addClass("low");
+        } else if (parseInt(oneCallData.value) > 3 && (parseInt(oneCallData.value) < 6)) { 
+          $(this). addClass("moderate");
+          } else $(this). addClass("high");
+        })
       });
-      // UV ratings low < 2, moderate 3-5, high > 6
-
-
   });
 
 }
 
- getWeather(city);
 
+//  getWeather(city);
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+// UV ratings low < 2, moderate 3-5, high > 6

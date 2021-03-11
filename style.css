@@ -1,13 +1,35 @@
 body{
-    background-color: lightblue;
+     background-color: lightblue;
     
     
 }
+
 header{
     text-align: center;
     border: solid black;
     border-radius:10px;
 }
+
 #weather-form{
     margin: 2%;
+}
+
+.littleBox{
+    
+
+}
+
+.low{
+    background-color: green;
+
+}
+
+.moderate{
+    background-color: yellow;
+
+}
+
+.high{
+    background-color: red;
+    
 }
