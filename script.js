@@ -96,16 +96,23 @@ fetch(currentWeatherUrl)
         console.log("oCD:", oneCallData);
         console.log("oCDvalue:", oneCallData.value);
          var uvIndex = document.createElement("p");
+         if (parseInt(oneCallData.value) < 3) {
+         uvIndex.classList.add("low");
+        } else if (parseInt(oneCallData.value)>3 && (parseInt(oneCallData.value)<6)){
+          uvIndex.classList.add("moderate");
+        }else uvIndex.classList.add("high");
         uvIndex.innerHTML = "UV Index: "+ oneCallData.value;
         containerEl.append(uvIndex);
-
-        $("littleBox").each(function addUvColor(){
-        if (paresInt(oneCallData.value) < 3) {
-          $(this). addClass("low");
-        } else if (parseInt(oneCallData.value) > 3 && (parseInt(oneCallData.value) < 6)) { 
-          $(this). addClass("moderate");
-          } else $(this). addClass("high");
-        })
+      
+        
+      
+        // $("littleBox").each(function addUvColor(){
+        // if (parseInt(oneCallData.value) < 3) {
+        //   $(this).addClass("low");
+        // } else if (parseInt(oneCallData.value) > 3 && (parseInt(oneCallData.value) < 6)) { 
+        //   $(this).addClass("moderate");
+        //   } else $(this).addClass("high");
+        // })
       });
   });
 
