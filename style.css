@@ -1,5 +1,6 @@
 body{
      background-color: lightblue;
+     font-family: sans-serif;
     
     
 }
@@ -14,22 +15,31 @@ header{
     margin: 2%;
 }
 
-/* .littleBox{
-    
+.container{
+    display:flex;
+    flex-direction: column;
+}
 
-} */
+.littleBox{
+    display:flex;
+    flex-direction: column;
+    
+}
 
 .low{
     background-color: green;
+    margin-right: 80%;
 
 }
 
 .moderate{
     background-color: yellow;
+    margin-right: 80%;
 
 }
 
 .high{
     background-color: red;
+    margin-right: 80%;
     
 }

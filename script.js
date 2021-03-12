@@ -62,16 +62,18 @@ fetch(currentWeatherUrl)
     var smallContainer = document.createElement("div");
     //added html to the small container
     var cityName = document.createElement("p");
-    cityName.innerHTML = "Location: "+city;
+    cityName.innerHTML = "City: "+city;
     smallContainer.append(cityName);
     var currentDay = moment().format("MMMM Do YYYY");
     var currentDayArea = document.createElement("p");
     currentDayArea.innerHTML = "Today's Date: "+currentDay;
     smallContainer.append(currentDayArea);
-
-     var tempData = document.createElement("p");
+    var tempData = document.createElement("p");
      tempData.innerHTML = "Temperature: "+ weather.main.temp + " F";
      smallContainer.append(tempData);
+    //  var image = document.createElement("p");
+    //  image.setAttribute = ("src", 'http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png');
+    // smallContainer.append(image)
      var humidity = document.createElement("p");
      humidity.innerHTML = "Humidity: "+ weather.main.humidity +" %";
      smallContainer.append(humidity);
@@ -98,28 +100,44 @@ fetch(currentWeatherUrl)
          var uvIndex = document.createElement("p");
          if (parseInt(oneCallData.value) < 3) {
          uvIndex.classList.add("low");
-        } else if (parseInt(oneCallData.value)>3 && (parseInt(oneCallData.value)<6)){
+        } else if (parseInt(oneCallData.value) > 3 && (parseInt(oneCallData.value)<6)){
           uvIndex.classList.add("moderate");
         }else uvIndex.classList.add("high");
         uvIndex.innerHTML = "UV Index: "+ oneCallData.value;
         containerEl.append(uvIndex);
-      
-        
-      
-        // $("littleBox").each(function addUvColor(){
-        // if (parseInt(oneCallData.value) < 3) {
-        //   $(this).addClass("low");
-        // } else if (parseInt(oneCallData.value) > 3 && (parseInt(oneCallData.value) < 6)) { 
-        //   $(this).addClass("moderate");
-        //   } else $(this).addClass("high");
-        // })
       });
-  });
-
+   });
 }
+
+var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}&units=imperial`;
+    fetch(forecastURL)
+    .then((data) => data.json())
+    .then(function (forecastData){
+      // console.log("forecast:", forecastData);
+      // console.log()
+      var forecastArray = forecastData.list;
+      for(var i = 4; i < forecastData.length; i = i + 8){
+        // console.log("5 day", forecastArray)
+        console.log("Array", forecastArray[index]);
+        var day = document.createElement("p");
+        day.innerHTML = "Date: "+ forecastData.dt_txt.slice(0,10)
+        smallContainer.append(day);
+        var temp = document.createElement("p");
+        temp.innerHTML = "Temperature: "+ forecastData.main.temp + " F";
+        smallContainer.append(temp);
+        var humid = document.createElement("p");
+        humid.innerHTML = "Humidity: "+ forecastData.main.humidity;
+        smallContainer.append(humid);
+         var image = document.createElement("p");
+         image.setAttribute = ("src", 'http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png');
+        smallContainer.append(image)
+        container.append(containerEl);
+        }
+       })
+
 
 
 //  getWeather(city);
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-// UV ratings low < 2, moderate 3-5, high > 6
+// 
