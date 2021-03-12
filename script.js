@@ -4,6 +4,7 @@
 //  first element return for ("#id's")
  var btns = document.querySelector("#city-btns");
  var form = document.querySelector("#weather-form");
+ var globalContainerEl = document.getElementById("containerEl");
  var city;
  console.log("city1:",city);
 
@@ -108,35 +109,40 @@ fetch(currentWeatherUrl)
         containerEl.append(uvIndex);
       });
    });
-}
-
 var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}&units=imperial`;
-    fetch(forecastURL)
+  fetch(forecastURL)
     .then((data) => data.json())
     .then(function (forecastData){
-      // console.log("forecast:", forecastData);
+       console.log("forecastData:", forecastData);
       // console.log()
       var forecastArray = forecastData.list;
-      for(var i = 4; i < forecastData.length; i = i + 8){
-        console.log("5 day", forecastArray)
+      for(var index = 4; index < forecastArray.length; index = index + 8){
+        //console.log("5 day", forecastArray)
         console.log("Array", forecastArray[index]);
-        var day = document.createElement("p");
-        day.innerHTML = "Date: "+ forecastData.dt_txt.slice(0,10)
-        smallContainer.append(day);
+        var dayBox = document.createElement("div");
+        // var day = document.createElement("p");
+        // day.innerHTML = "Date: "+ forecastData.dt_txt.slice(0,10)
+        // smallContainer.append(day);
         var temp = document.createElement("p");
-        temp.innerHTML = "Temperature: "+ forecastData.main.temp + " F";
-        smallContainer.append(temp);
-        var humid = document.createElement("p");
-        humid.innerHTML = "Humidity: "+ forecastData.main.humidity;
-        smallContainer.append(humid);
-        var image = document.createElement("p");
-        image.setAttribute = ("src", 'http://openweathermap.org/img/${currentDay.weather[0].icon}@2x.png');
-        // // link not working, ${} ineffective ??
-        smallContainer.append(image)
-        container.append(containerEl);
+        temp.innerHTML = "Temperature: "+ forecastArray[index].main.temp + " F";
+        dayBox.append(temp);
+        // var humid = document.createElement("p");
+        // humid.innerHTML = "Humidity: "+ forecastData.main.humidity;
+        // smallContainer.append(humid);
+        // var image = document.createElement("p");
+        // image.setAttribute = ("src", 'http://openweathermap.org/img/${currentDay.weather[0].icon}@2x.png');
+        // // // link not working, ${} ineffective ??
+        // smallContainer.append(image)
+        globalContainerEl.append(dayBox);
+
 
         }
        })
+
+
+}
+
+
 
 
 
