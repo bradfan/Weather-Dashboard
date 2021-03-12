@@ -57,7 +57,7 @@ fetch(currentWeatherUrl)
     var lon = weather.coord.lon;
     
     var containerEl = document.getElementById("containerEl");
-// smaller container (smallContainer) within larger container (container.)For each loop will duplacate boxes within larger container.
+// smaller container (smallContainer) within larger container (container.) 'For' loop will duplacate boxes within larger container.
     // create the small conatiner
     var smallContainer = document.createElement("div");
     //added html to the small container
@@ -71,16 +71,17 @@ fetch(currentWeatherUrl)
     var tempData = document.createElement("p");
      tempData.innerHTML = "Temperature: "+ weather.main.temp + " F";
      smallContainer.append(tempData);
-    //  var image = document.createElement("p");
-    //  image.setAttribute = ("src", 'http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png');
-    // smallContainer.append(image)
+     var image = document.createElement("p");
+     image.setAttribute = ("src", 'http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png');
+    smallContainer.append(image)
+    // link not working, ${} ineffective ??
      var humidity = document.createElement("p");
      humidity.innerHTML = "Humidity: "+ weather.main.humidity +" %";
      smallContainer.append(humidity);
      var wind = document.createElement("p");
      wind.innerHTML = "Wind Speed: "+ weather.wind.speed +" mph";
      smallContainer.append(wind);
-    //appned small conatiner to big container
+    //append small conatiner to big container
     containerEl.append(smallContainer)
     
     
@@ -117,7 +118,7 @@ var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&app
       // console.log()
       var forecastArray = forecastData.list;
       for(var i = 4; i < forecastData.length; i = i + 8){
-        // console.log("5 day", forecastArray)
+        console.log("5 day", forecastArray)
         console.log("Array", forecastArray[index]);
         var day = document.createElement("p");
         day.innerHTML = "Date: "+ forecastData.dt_txt.slice(0,10)
@@ -128,16 +129,16 @@ var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&app
         var humid = document.createElement("p");
         humid.innerHTML = "Humidity: "+ forecastData.main.humidity;
         smallContainer.append(humid);
-         var image = document.createElement("p");
-         image.setAttribute = ("src", 'http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png');
+        var image = document.createElement("p");
+        image.setAttribute = ("src", 'http://openweathermap.org/img/${currentDay.weather[0].icon}@2x.png');
+        // // link not working, ${} ineffective ??
         smallContainer.append(image)
         container.append(containerEl);
+
         }
        })
 
 
 
-//  getWeather(city);
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-// 
+
