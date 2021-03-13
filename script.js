@@ -128,7 +128,7 @@ var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&app
         temp.innerHTML = "Temperature: "+ forecastArray[index].main.temp + " F";
         dayBox.append(temp);
         var humid = document.createElement("p");
-        humid.innerHTML = "Humidity: "+ forecastArray[index].main.humidity;
+        humid.innerHTML = "Humidity: "+ forecastArray[index].main.humidity + " %";
         dayBox.append(humid);
         var image = document.createElement("p");
         image.setAttribute = ("src", 'http://openweathermap.org/img/${forecastDay.weather[0].icon}@2x.png');
