@@ -120,20 +120,20 @@ var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&app
         //console.log("5 day", forecastArray)
         console.log("Array", forecastArray[index]);
         var dayBox = document.createElement("div");
-        // var forecastDay = moment().format("MMMM Do YYYY");
-        // var day = document.createElement("p");
-        // day.innerHTML = "Date: "+ forecastArray[index].dt_txt.slice(0,10)
-        // dayBox.append(day);
+        var forecastDay;
+        var day = document.createElement("p");
+        day.innerHTML = "Date: "+ forecastArray[index].dt_txt.slice(0,10)
+        dayBox.append(day);
         var temp = document.createElement("p");
         temp.innerHTML = "Temperature: "+ forecastArray[index].main.temp + " F";
         dayBox.append(temp);
         var humid = document.createElement("p");
         humid.innerHTML = "Humidity: "+ forecastArray[index].main.humidity;
         dayBox.append(humid);
-        // var image = document.createElement("p");
-        // image.setAttribute = ("src", 'http://openweathermap.org/img/${currentDay.weather[0].icon}@2x.png');
-        // // // link not working, ${} ineffective ??
-        // smallContainer.append(image)
+        var image = document.createElement("p");
+        image.setAttribute = ("src", 'http://openweathermap.org/img/${forecastDay.weather[0].icon}@2x.png');
+        // // link not working, ${} ineffective define forecastDay??
+        dayBox.append(image)
         globalContainerEl.append(dayBox);
 
 
