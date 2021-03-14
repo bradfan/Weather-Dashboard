@@ -72,10 +72,9 @@ fetch(currentWeatherUrl)
     var tempData = document.createElement("p");
      tempData.innerHTML = "Temperature: "+ weather.main.temp + " F";
      smallContainer.append(tempData);
-     var image = document.createElement("p");
-     image.setAttribute = ("src", 'http://openweathermap.org/img/wn/${currentDay.weather[0].icon}@2x.png');
-    smallContainer.append(image)
-    // link not working, ${} ineffective ??
+     var image = document.createElement("img");
+     image.setAttribute("src", `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+     smallContainer.append(image)
      var humidity = document.createElement("p");
      humidity.innerHTML = "Humidity: "+ weather.main.humidity +" %";
      smallContainer.append(humidity);
@@ -106,7 +105,7 @@ fetch(currentWeatherUrl)
           uvIndex.classList.add("moderate");
         }else uvIndex.classList.add("high");
         uvIndex.innerHTML = "UV Index: "+ oneCallData.value;
-        containerEl.append(uvIndex);
+        smallContainer.append(uvIndex);
       });
    });
 var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}&units=imperial`;
@@ -130,9 +129,8 @@ var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&app
         var humid = document.createElement("p");
         humid.innerHTML = "Humidity: "+ forecastArray[index].main.humidity + " %";
         dayBox.append(humid);
-        var image = document.createElement("p");
-        image.setAttribute = ("src", 'http://openweathermap.org/img/${forecastDay.weather[0].icon}@2x.png');
-        // // link not working, ${} ineffective define forecastDay??
+        var image = document.createElement("img");
+        image.setAttribute("src", `http://openweathermap.org/img/wn/${forecastArray[index].weather[0].icon}@2x.png`);
         dayBox.append(image)
         globalContainerEl.append(dayBox);
 

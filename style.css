@@ -19,7 +19,15 @@ header{
     display:flex;
     flex-direction: row;
 }
+#containerEl{
+    display:flex;
+    flex-direction: row;
+   
 
+}
+#containerEl div{
+    margin:20px;
+}
 .littleBox{
     display:flex;
     flex-direction: column;
