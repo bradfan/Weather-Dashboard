@@ -25,9 +25,14 @@ header{
    
 
 }
+
+
+
 #containerEl div{
-    margin:20px;
+    margin:30px;
+    
 }
+
 .littleBox{
     display:flex;
     flex-direction: column;
@@ -36,18 +41,18 @@ header{
 
 .low{
     background-color: green;
-    margin-right: 80%;
+    margin-right: 50%;
 
 }
 
 .moderate{
     background-color: yellow;
-    margin-right: 80%;
+    margin-right: 50%;
 
 }
 
 .high{
     background-color: red;
-    margin-right: 80%;
+    margin-right: 50%;
     
 }
