@@ -91,7 +91,7 @@ fetch(currentWeatherUrl)
       renderCityBtns();
     }
     // send additonal api call with the latitude and longitude for our city
-    var onecallURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${api_key}`;
+    var onecallURL = `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${api_key}`;
     // send fetch request to get latitude and longitude
     fetch(onecallURL)
       .then((data) => data.json())
@@ -108,7 +108,7 @@ fetch(currentWeatherUrl)
         smallContainer.append(uvIndex);
       });
    });
-var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}&units=imperial`;
+var forecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${api_key}&units=imperial`;
   fetch(forecastURL)
     .then((data) => data.json())
     .then(function (forecastData){
@@ -130,7 +130,7 @@ var forecastURL = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&app
         humid.innerHTML = "Humidity: "+ forecastArray[index].main.humidity + " %";
         dayBox.append(humid);
         var image = document.createElement("img");
-        image.setAttribute("src", `http://openweathermap.org/img/wn/${forecastArray[index].weather[0].icon}@2x.png`);
+        image.setAttribute("src", `https://openweathermap.org/img/wn/${forecastArray[index].weather[0].icon}@2x.png`);
         dayBox.append(image)
         globalContainerEl.append(dayBox);
 
