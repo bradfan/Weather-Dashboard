@@ -41,7 +41,7 @@ function renderCityBtns(){
 // takes in a city name and retrieves weather data for that city
 function getWeather(city){
   // takes in the city and returns current weather data
-  var currentWeatherUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=imperial`;
+  var currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api_key}&units=imperial`;
    // fetch data from current weather
 fetch(currentWeatherUrl)
   .then((data) => data.json())
@@ -73,7 +73,7 @@ fetch(currentWeatherUrl)
      tempData.innerHTML = "Temperature: "+ weather.main.temp + " F";
      smallContainer.append(tempData);
      var image = document.createElement("img");
-     image.setAttribute("src", `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
+     image.setAttribute("src", `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
      smallContainer.append(image)
      var humidity = document.createElement("p");
      humidity.innerHTML = "Humidity: "+ weather.main.humidity +" %";
@@ -91,7 +91,7 @@ fetch(currentWeatherUrl)
       renderCityBtns();
     }
     // send additonal api call with the latitude and longitude for our city
-    var onecallURL = `http://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${api_key}`;
+    var onecallURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${api_key}`;
     // send fetch request to get latitude and longitude
     fetch(onecallURL)
       .then((data) => data.json())
