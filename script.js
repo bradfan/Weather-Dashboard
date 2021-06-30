@@ -65,7 +65,7 @@ function getWeather(city) {
       var cityName = document.createElement("p");
       cityName.innerHTML = "City: " + city;
       smallContainer.append(cityName);
-      var currentDay = moment().format("MMMM Do YYYY");
+      var currentDay = moment().format("MMMM Do");
       var currentDayArea = document.createElement("p");
       currentDayArea.innerHTML = "Today: " + currentDay;
       smallContainer.append(currentDayArea);
