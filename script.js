@@ -82,7 +82,7 @@ function getWeather(city) {
       humidity.innerHTML = "Humidity: " + weather.main.humidity + " %";
       smallContainer.append(humidity);
       var wind = document.createElement("p");
-      wind.innerHTML = "Wind Speed: " + weather.wind.speed + " mph";
+      wind.innerHTML = "Wind: " + weather.wind.speed + " mph";
       smallContainer.append(wind);
       //append small conatiner to big container
       containerEl.append(smallContainer);
