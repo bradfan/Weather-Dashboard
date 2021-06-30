@@ -18,10 +18,12 @@ header{
 .container{
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 #containerEl{
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
    
 
 }
