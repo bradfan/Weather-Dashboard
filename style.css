@@ -1,5 +1,5 @@
 body{
-     background-color: lightblue;
+     /* background-color: lightblue; */
      font-family: sans-serif;
     
     
@@ -9,6 +9,12 @@ header{
     text-align: center;
     border: solid black;
     border-radius:10px;
+    background-color: lightblue;
+    opacity: 80%;
+}
+p{
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #weather-form{
@@ -19,11 +25,13 @@ header{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-radius:10px;
 }
 #containerEl{
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-radius:10px;
    
 
 }
@@ -31,13 +39,18 @@ header{
 
 
 #containerEl div{
-    margin:30px;
+    margin:2%;
+    border-radius:10px;
+    border: solid black;
+    background-color: lightblue;
+    opacity: 80%;
     
 }
 
 .littleBox{
     display:flex;
     flex-direction: column;
+    
     
 }
 

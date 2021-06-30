@@ -1,50 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Weather Dashboard</title>
-</head>
-<Header><h1>WEATHER AT A GLANCE</h1></Header>
-<body>
+  </head>
+  <header><h1>WEATHER AT A GLANCE</h1></header>
+  <body>
     <form id="weather-form">
-        <input type = "text" id = "city"/>
-        <button>Get The Weather!</button>
-        
-        <div id="city-btns">
-            
-        </div>
-        <div id="container">
-          
-            <div class="littleBox" id="containerEl">
+      <input type="text" id="city" placeholder="Input City Here" />
+      <button>And Get The Weather!</button>
 
-                <div id="oneDayArea"></div>
-
-                
-                
-                
-            </div>
-        
-        </div>
+      <div id="city-btns"></div>
+      <div id="container">
+        <div class="littleBox" id="containerEl"></div>
+      </div>
     </form>
-    
-
-    
-
-
-
-
-
-
-
-
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src = "script.js"></script>
+    <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-</body>
-
+  </body>
 </html>
