@@ -12,7 +12,7 @@ console.log("city1:", city);
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   city = document.querySelector("#city").value;
-  console.log("city2: ", city);
+  console.log("city2:", city);
 
   getWeather(city);
 });
@@ -25,18 +25,19 @@ if (cities) {
 }
 // keeps the list from repopulating city names that have already been chosen. typed out from Tucker's demo. need to define weather and name.
 
-function renderCityBtns() {
-  // innerHTML allows reading everything within a given DOM element aka <HTML tag>
-  btns.innerHTML = "";
-  cities.forEach(function (city) {
-    // need a btn to display storage
-    var cityBtn = document.createElement("button");
-    // set its text to be the city name (user input)
-    cityBtn.textContent = city;
-    // append the btn to the city-btn div create <div id = "city-btn"> ,display storage
-    btns.append(cityBtn);
-  });
-}
+// function renderCityBtns() {
+//   // innerHTML allows reading everything within a given DOM element aka <HTML tag>
+//   btns.innerHTML = "";
+//   cities.forEach(function (city) {
+//     // need a btn to display storage
+//     var cityBtn = document.createElement("button");
+//     // set its text to be the city name (user input)
+//     cityBtn.textContent = city;
+//     // append the btn to the city-btn div create <div id = "city-btn"> ,display storage
+//     btns.append(cityBtn);
+//   });
+// }
+// console.log("button click", cityBtn);
 
 // takes in a city name and retrieves weather data for that city
 function getWeather(city) {
