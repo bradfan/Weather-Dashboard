@@ -48,9 +48,11 @@ function getWeather(city) {
     .then(function (weather) {
       console.log("weather: ", weather);
       // if that city was not found, alert user
-      if (weather.cod === 404) {
+      var code = weather.cod;
+       console.log("code", code);
+      if (code == 404) {
         // display message to user
-        alert("City not found");
+        alert("City not found, please try again.");
         return;
       }
 
