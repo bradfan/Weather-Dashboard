@@ -45,7 +45,7 @@ p {
   border: solid black;
   background-color: lightblue;
   opacity: 70%;
-  
+  text-align: center;
 }
 
 .littleBox {
@@ -65,10 +65,19 @@ p {
 
 .high {
   background-color: red;
-  margin-right: 50%;
+  /* margin-right: 50%; */
 }
 @media screen and (max-width: 1200px) {
-    .container{
-        flex-direction:column;
+    #containerEl{
+        /* flex-direction:column; */
+    }
+    #containerEl div {
+      /* margin: 2%;
+      border-radius: 10px;
+      border: solid black;
+      background-color: lightblue;
+      opacity: 70%; */
+      width:30%;
+      min-width: 300px;
     }
 }

@@ -61,6 +61,8 @@ function getWeather(city) {
       var lon = weather.coord.lon;
 
       var containerEl = document.getElementById("containerEl");
+      containerEl.innerHTML = "";
+      // line 64 empties the container of html prior to append
       // smaller container (smallContainer) within larger container (container.) 'For' loop will duplacate boxes within larger container.
       // create the small conatiner
       var smallContainer = document.createElement("div");
