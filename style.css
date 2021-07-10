@@ -55,17 +55,17 @@ p {
 
 .low {
   background-color: green;
-  margin-right: 50%;
+  /* look at uv margin for all three */
 }
 
 .moderate {
   background-color: yellow;
-  margin-right: 50%;
+  
 }
 
 .high {
   background-color: red;
-  /* margin-right: 50%; */
+ 
 }
 @media screen and (max-width: 1200px) {
     #containerEl{
